@@ -1,0 +1,9 @@
+<h3> Login </h3>
+<pre>
+    {{formGroup?.value | json}}
+</pre>
+<form [formGroup]="formGroup">
+    <label>User Name</label>
+    <input type="text" formControlName="userName">
+    <button>Set</button>
+</form>
