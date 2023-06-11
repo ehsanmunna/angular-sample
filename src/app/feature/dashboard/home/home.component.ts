@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { Store } from '@ngrx/store';
 import { interval } from 'rxjs/internal/observable/interval';
-import { timeInterval } from 'rxjs/operators';
+import { last, tap } from 'rxjs/operators';
 import { UnsubscribeAdapter } from 'src/app/@core/classes/unsubscribe-adapter';
+import { IUser } from 'src/app/store/states';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +11,20 @@ import { UnsubscribeAdapter } from 'src/app/@core/classes/unsubscribe-adapter';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent extends UnsubscribeAdapter implements OnInit {
-  public observable = interval(1000);
-  constructor() { super(); }
+  // public observable = interval(1000);
+  public users: any;
+  constructor(private store: Store<any>) { 
+    super();
+    this.users = this.store.select(state => {
+      return state.user;
+    });
+  }
 
   ngOnInit(): void {
-    
-    this.observable
-    .subscribe(e=> {
-      console.log(e);
-    })
+    // this.observable
+    // .subscribe(e=> {
+    //   console.log(e);
+    // })
   }
 
 }

@@ -1,0 +1,17 @@
+<p>
+    <mat-toolbar>
+        <span>My Angular Sample</span>
+    </mat-toolbar>
+    <mat-sidenav-container class="example-container">
+        <mat-sidenav mode="side" opened class="nav-size">
+            <mat-list role="list">
+                <!-- <a mat-list-item href="...">{{ link }}</a> -->
+                <a mat-list-item routerLink="/feature/dashboard">Dasboard</a>
+                <a mat-list-item routerLink="/feature/dashboard/settings">settings</a>
+              </mat-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+</p>
