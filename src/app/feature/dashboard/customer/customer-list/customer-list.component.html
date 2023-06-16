@@ -1,0 +1,13 @@
+<mat-toolbar>
+    <span>Customer List</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        Add
+    </button>
+</mat-toolbar>
+
+<mat-list>
+    <mat-list-item *ngFor="let item of customerList$ | async">
+      <span matListItemTitle>{{item.name}}</span>
+    </mat-list-item>
+  </mat-list>

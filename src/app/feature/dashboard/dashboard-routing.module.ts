@@ -16,9 +16,16 @@ const routes: Routes = [{
       path: 'settings',
       component: SettingsComponent
     },
+    {
+      path: 'customer',
+      loadChildren: () => import('./customer/customer.module').then(e => e.CustomerModule)
+    },
     { path: '',   redirectTo: 'home', pathMatch: 'full' },
-  ]
-}];
+    
+  ],
+  }
+  
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
