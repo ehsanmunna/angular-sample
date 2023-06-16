@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './@core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { addUserReducer } from './store/reducers/user.reducer';
 
 @NgModule({
   declarations: [
@@ -12,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({ user: addUserReducer }),
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
